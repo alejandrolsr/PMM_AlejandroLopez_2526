@@ -12,7 +12,7 @@ class InfoScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Text(
-              "Tu Nombre Completo",
+              "Alejandro López-Salvatierra Ruiz",
               style: TextStyle(
                 fontSize: 24,
                 color: Colors.blue,
@@ -22,7 +22,7 @@ class InfoScreen extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              "https://github.com/tuusuario",
+              "https://github.com/alejandrolsr/PMM_AlejandroLopez_2526",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.black87,

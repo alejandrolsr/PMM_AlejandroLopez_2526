@@ -11,7 +11,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});git
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Actividad Tema 1',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const HomePage(),
+      routes: {
         '/info': (context) => const InfoScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/gallery': (context) => const GalleryScreen(),

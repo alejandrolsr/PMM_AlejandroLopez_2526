@@ -20,7 +20,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.person),
-            title: const Text("Info (Nombre + Repo)"),
+            title: const Text("Info"),
             onTap: () => Navigator.pushNamed(context, '/info'),
           ),
           ListTile(
