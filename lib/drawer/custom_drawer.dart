@@ -43,6 +43,11 @@ class CustomDrawer extends StatelessWidget {
             title: const Text("Imágenes"),
             onTap: () => Navigator.pushNamed(context, '/images'),
           ),
+          ListTile(
+            leading: const Icon(Icons.text_fields),
+            title: const Text("Texto"),
+            onTap: () => Navigator.pushNamed(context, '/text'),
+          ),
         ],
       ),
     );

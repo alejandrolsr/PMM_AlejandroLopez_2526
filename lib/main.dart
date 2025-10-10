@@ -5,6 +5,7 @@ import 'screens/profile_screen.dart';
 import 'screens/gallery_screen.dart';
 import 'screens/icons_screen.dart';
 import 'screens/images_screen.dart';
+import 'screens/text_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => const ProfileScreen(),
         '/gallery': (context) => const GalleryScreen(),
         '/icons': (context) => const IconsScreen(),
-        '/images': (context) => const ImagesScreen(),
+        '/images': (context) => const ImageGridScreen(),
+        '/text': (context) => const TextScreen(),
       },
     );
   }
