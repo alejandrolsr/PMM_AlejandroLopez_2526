@@ -6,13 +6,13 @@ class ImageGridScreen extends StatelessWidget {
   // Ruta de la imagen local para la Fila 1
   final String _assetPath1 = 'assets/images/img1.jpg'; 
   
-  // URL de ejemplo para la Fila 2
+  // URL para la Fila 2
   final String _imageUrl2 = 'https://picsum.photos/id/200/100/100'; 
   
-  // URL de ejemplo para la Fila 3
+  // URL para la Fila 3
   final String _imageUrl3 = 'https://picsum.photos/id/210/100/100'; 
 
-  // Widget auxiliar para crear un contenedor de imagen con tamaño y márgenes
+  // Widget para crear un contenedor de imagen con tamaño y márgenes
   Widget _buildImageContainer(Widget imageWidget, {required double size}) {
     return Container(
       width: size,

@@ -6,6 +6,8 @@ import 'screens/gallery_screen.dart';
 import 'screens/icons_screen.dart';
 import 'screens/images_screen.dart';
 import 'screens/text_screen.dart';
+import 'screens/images2_screen.dart';
+import 'screens/challenge_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
         '/gallery': (context) => const GalleryScreen(),
         '/icons': (context) => const IconsScreen(),
         '/images': (context) => const ImageGridScreen(),
+        '/images2': (context) => const Images2Screen(),
         '/text': (context) => const TextScreen(),
+        '/challenge': (context) => const ChallengeScreen(),
       },
     );
   }
