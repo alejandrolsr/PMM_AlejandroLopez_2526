@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/instagram_screen.dart';
 import 'drawer/custom_drawer.dart';
 import 'screens/info_screen.dart';
 import 'screens/profile_screen.dart';
@@ -8,6 +9,7 @@ import 'screens/images_screen.dart';
 import 'screens/text_screen.dart';
 import 'screens/images2_screen.dart';
 import 'screens/challenge_screen.dart';
+import 'screens/contador_click_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/images2': (context) => const Images2Screen(),
         '/text': (context) => const TextScreen(),
         '/challenge': (context) => const ChallengeScreen(),
+        '/contadorclick': (context) => const ContadorClickScreen(),
+        '/instagram': (context) =>  InstagramScreen(),
       },
     );
   }
