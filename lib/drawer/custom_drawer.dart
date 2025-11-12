@@ -68,7 +68,17 @@ class CustomDrawer extends StatelessWidget {
             title: const Text("Instagram"),
             onTap: () => Navigator.pushNamed(context, '/instagram'),
           ),
-          
+          ListTile(
+            leading: const Icon(Icons.color_lens),
+            title: const Text("Ramdom Colors"),
+            onTap: () => Navigator.pushNamed(context, '/randomcolors'),
+          ),
+
+                    ListTile(
+            leading: const Icon(Icons.games),
+            title: const Text("Tap Game"),
+            onTap: () => Navigator.pushNamed(context, '/tapgame'),
+          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/random_colors_screen.dart';
 import 'screens/instagram_screen.dart';
 import 'drawer/custom_drawer.dart';
 import 'screens/info_screen.dart';
@@ -10,6 +11,7 @@ import 'screens/text_screen.dart';
 import 'screens/images2_screen.dart';
 import 'screens/challenge_screen.dart';
 import 'screens/contador_click_screen.dart';
+import 'screens/tap_game_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,6 +38,8 @@ class MyApp extends StatelessWidget {
         '/challenge': (context) => const ChallengeScreen(),
         '/contadorclick': (context) => const ContadorClickScreen(),
         '/instagram': (context) =>  InstagramScreen(),
+        '/randomcolors': (context) => const RandomColors(),
+        '/tapgame': (context) => const TapGameScreen(),
       },
     );
   }
