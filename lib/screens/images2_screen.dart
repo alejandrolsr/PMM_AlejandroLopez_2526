@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import '../drawer/custom_drawer.dart'; 
 
 class Images2Screen extends StatelessWidget {
+  
+  static const String routeName = '/images2';
+
   const Images2Screen({super.key});
 
   @override
@@ -10,6 +14,7 @@ class Images2Screen extends StatelessWidget {
         title: const Text('Ejemplo de filas y columnas anidadas'),
         backgroundColor: Colors.blue, 
       ),
+      drawer: const CustomDrawer(),
       body: Padding(
         
         padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 8.0),
@@ -29,7 +34,6 @@ class Images2Screen extends StatelessWidget {
             const SizedBox(height: 30), 
 
             // --- Fila 2: 2 Elementos ---
-           
             Row(
               children: [
                 Expanded(

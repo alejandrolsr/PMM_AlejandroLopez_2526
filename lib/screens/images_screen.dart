@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import '../drawer/custom_drawer.dart';
 
 class ImageGridScreen extends StatelessWidget {
+  
+  static const String routeName = '/images';
+
   const ImageGridScreen({super.key});
 
   // Ruta de la imagen local para la Fila 1
@@ -36,6 +40,7 @@ class ImageGridScreen extends StatelessWidget {
         title: const Text("Disposición de Imágenes"),
         backgroundColor: Colors.blueGrey,
       ),
+      drawer: const CustomDrawer(), 
       // Usamos Column para apilar las filas verticalmente
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start, // Alinea todo el contenido a la izquierda

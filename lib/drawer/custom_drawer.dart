@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import '../screens/screens.dart';
+import '../main.dart'; 
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
+    final appState = MyApp.of(context);
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -19,65 +24,83 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text("Inicio"),
+            onTap: () => Navigator.pushReplacementNamed(context, HomeScreen.routeName),
+          ),
+          ListTile(
             leading: const Icon(Icons.person),
             title: const Text("Info"),
-            onTap: () => Navigator.pushNamed(context, '/info'),
+            onTap: () => Navigator.pushReplacementNamed(context, InfoScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.account_circle),
             title: const Text("Perfil"),
-            onTap: () => Navigator.pushNamed(context, '/profile'),
+            onTap: () => Navigator.pushReplacementNamed(context, ProfileScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.photo_library),
             title: const Text("Galería"),
-            onTap: () => Navigator.pushNamed(context, '/gallery'),
+            onTap: () => Navigator.pushReplacementNamed(context, GalleryScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.star),
             title: const Text("Iconos"),
-            onTap: () => Navigator.pushNamed(context, '/icons'),
+            onTap: () => Navigator.pushReplacementNamed(context, IconsScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.image),
             title: const Text("Imágenes"),
-            onTap: () => Navigator.pushNamed(context, '/images'),
+            onTap: () => Navigator.pushReplacementNamed(context, ImageGridScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.image),
             title: const Text("Imágenes 2 "),
-            onTap: () => Navigator.pushNamed(context, '/images2'),
+            onTap: () => Navigator.pushReplacementNamed(context, Images2Screen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.text_fields),
             title: const Text("Texto"),
-            onTap: () => Navigator.pushNamed(context, '/text'),
+            onTap: () => Navigator.pushReplacementNamed(context, TextScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.flag),
             title: const Text("Reto"),
-            onTap: () => Navigator.pushNamed(context, '/challenge'),
+            onTap: () => Navigator.pushReplacementNamed(context, ChallengeScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.touch_app),
             title: const Text("Contador de Clics"),
-            onTap: () => Navigator.pushNamed(context, '/contadorclick'),
+            onTap: () => Navigator.pushReplacementNamed(context, ContadorClickScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.camera_alt),
             title: const Text("Instagram"),
-            onTap: () => Navigator.pushNamed(context, '/instagram'),
+            onTap: () => Navigator.pushReplacementNamed(context, InstagramScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.color_lens),
             title: const Text("Ramdom Colors"),
-            onTap: () => Navigator.pushNamed(context, '/randomcolors'),
+            onTap: () => Navigator.pushReplacementNamed(context, RandomColors.routeName),
           ),
-
-                    ListTile(
+          ListTile(
             leading: const Icon(Icons.games),
             title: const Text("Tap Game"),
-            onTap: () => Navigator.pushNamed(context, '/tapgame'),
+            onTap: () => Navigator.pushReplacementNamed(context, TapGameScreen.routeName),
+          ),
+
+
+          Divider(),
+          SwitchListTile(
+            title: Text('Modo Oscuro'),
+            secondary: Icon(appState.currentThemeMode == ThemeMode.dark 
+                ? Icons.dark_mode 
+                : Icons.light_mode),
+            
+            value: appState.currentThemeMode == ThemeMode.dark,
+            onChanged: (bool value) {
+              appState.toggleTheme(value);
+            },
           ),
         ],
       ),

@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import '../drawer/custom_drawer.dart';
 
 class InfoScreen extends StatelessWidget {
+  static const String routeName = '/info';
+
   const InfoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Info")),
+      drawer: const CustomDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               "Alejandro López-Salvatierra Ruiz",
               style: TextStyle(
@@ -25,7 +29,7 @@ class InfoScreen extends StatelessWidget {
               "https://github.com/alejandrolsr/PMM_AlejandroLopez_2526",
               style: TextStyle(
                 fontSize: 18,
-                color: Colors.black87,
+                
                 fontFamily: 'Courier', // fuente tipo monoespaciada
               ),
             ),

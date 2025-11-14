@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import '../drawer/custom_drawer.dart'; 
 
 class ProfileScreen extends StatelessWidget {
+  
+  static const String routeName = '/profile';
+
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Perfil")),
+      drawer: const CustomDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

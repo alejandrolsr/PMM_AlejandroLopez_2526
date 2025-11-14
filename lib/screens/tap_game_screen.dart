@@ -32,7 +32,8 @@ class _TapGameScreenState extends State<TapGameScreen> {
       setState(() {
          _isLayoutBuilt = true;
       });
-      _moveTarget(); // Coloca el primer objetivo y empieza el timer
+      // Inicia el timer aquí para que no se ejecute antes de tiempo
+      _timer = Timer(Duration.zero, _moveTarget);
     });
   }
 
@@ -44,14 +45,14 @@ class _TapGameScreenState extends State<TapGameScreen> {
 
   void _startTimer() {
     // Si el timer ya existe, lo cancela
-    if (_timer.isActive) _timer.cancel();
+    if (mounted && _timer.isActive) _timer.cancel();
     // Inicia un nuevo timer
     _timer = Timer(Duration(seconds: _gameTimeInSeconds), _onMiss);
   }
 
   // Mueve el objetivo a una nueva posición aleatoria
   void _moveTarget() {
-    if (!_isLayoutBuilt) return; 
+    if (!_isLayoutBuilt || !mounted) return; 
 
     // Obtenemos las dimensiones de la pantalla
     final screenWidth = MediaQuery.of(context).size.width;
@@ -80,12 +81,15 @@ class _TapGameScreenState extends State<TapGameScreen> {
     _moveTarget(); // Muestra el siguiente objetivo
   }
 
-  // El timer se acaba, el usuario no pulsó
+  // El timer se acabó, el usuario no pulsó
   void _onMiss() {
-    setState(() {
-      _points -= 2;
-    });
-    _moveTarget(); // Muestra el siguiente objetivo
+    // Solo actualiza si el widget sigue montado
+    if (mounted) {
+      setState(() {
+        _points -= 2;
+      });
+      _moveTarget(); // Muestra el siguiente objetivo
+    }
   }
 
   @override

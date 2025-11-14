@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
-import '../drawer/custom_drawer.dart'; // Importamos el Drawer
+import '../drawer/custom_drawer.dart';
 
 class RandomColors extends StatefulWidget {
-  // 1. Añadimos la ruta nombrada
   static const String routeName = '/randomcolors';
 
   const RandomColors({super.key});
@@ -49,7 +48,7 @@ class _RandomColorsState extends State<RandomColors> {
 
   @override
   void dispose() {
-    _timer.cancel(); // Muy importante para evitar errores
+    _timer.cancel();
     super.dispose();
   }
 
@@ -65,7 +64,7 @@ class _RandomColorsState extends State<RandomColors> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor, // Usa el Theme
       appBar: AppBar(
         title: const Text("Colores Aleatorios"),
       ),
@@ -76,7 +75,11 @@ class _RandomColorsState extends State<RandomColors> {
         children: [
           Text(
             'Puntos: $points',
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+            // Usa el Theme pero lo hace más grande
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+              fontSize: 30
+            ),
           ),
           Center(
             child: GestureDetector(
@@ -90,8 +93,7 @@ class _RandomColorsState extends State<RandomColors> {
                   ),
                   Text(
                     randomName,
-                    style: const TextStyle(
-                      color: Colors.black,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                     ),
@@ -113,11 +115,12 @@ class _RandomColorsState extends State<RandomColors> {
       } else {
         points--;
       }
-
-      // Genera un nuevo reto INMEDIATAMENTE después de pulsar
+      
+      
+      // Genera un nuevo reto después de pulsar
       getRandomIndexes();
 
-      //Resetea el timer para dar 1 segundo para el nuevo reto
+      // 3. Resetea el timer para dar 1 segundo para el nuevo reto
       _timer.cancel();
       startTimer();
     });
