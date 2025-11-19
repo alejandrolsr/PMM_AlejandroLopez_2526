@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfileHeader extends StatelessWidget {
+  
+  //Función para abrir la URL
+  Future<void> _launchURL() async {
+    final Uri url = Uri.parse('https://github.com/alejandrolsr/PMM_AlejandroLopez_2526');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'No se pudo lanzar $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -10,14 +22,14 @@ class ProfileHeader extends StatelessWidget {
         children: [
           Row(
             children: [
-              //Foto de perfil
+              // Foto de perfil
               CircleAvatar(
                 radius: 40,
                 backgroundColor: Colors.grey[200],
                 backgroundImage: AssetImage('assets/images/ig/fotoale.jpg'),
               ),
               
-              //Estadísticas
+              // Estadísticas
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -32,13 +44,28 @@ class ProfileHeader extends StatelessWidget {
           ),
           SizedBox(height: 12),
 
-          //Biografía
+          // Biografía
           Text('Alejandro López-Salvatierra', style: TextStyle(fontWeight: FontWeight.bold)),
           Text('Photographer/Videomaker', style: TextStyle(color: Colors.grey[600])),
           SizedBox(height: 8),
+      
           Text(
-            'Spain, Málaga 🇪🇸🏖️ \nFotógrafo de Coches 🚗\nContáctame: \nwww.alejandrosalvatierrafotomaker.com',
+            'Spain, Málaga 🇪🇸🏖️ \nFotógrafo de Coches 🚗\n',
           ),
+          
+          //Widget del enlace
+          InkWell(
+            onTap: _launchURL,
+            child: Text(
+              'https://github.com/alejandrolsr/PMM_AlejandroLopez_2526', 
+              style: TextStyle(
+                color: Colors.blue, 
+                decoration: TextDecoration.underline, 
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+          ),
+
           SizedBox(height: 8),
           Text(
             'Followed by audi.es, bmw_espana and 18 others',
@@ -49,7 +76,7 @@ class ProfileHeader extends StatelessWidget {
     );
   }
 
-  //Widget para crear cada columna de estadística
+  // Widget para crear cada columna de estadística
   Column _buildStatColumn(String value, String label) {
     return Column(
       mainAxisSize: MainAxisSize.min,

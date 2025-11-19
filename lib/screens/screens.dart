@@ -12,3 +12,4 @@ export 'contador_click_screen.dart';
 export 'instagram_screen.dart';
 export 'random_colors_screen.dart';
 export 'tap_game_screen.dart';
+export 'splash_screen.dart';

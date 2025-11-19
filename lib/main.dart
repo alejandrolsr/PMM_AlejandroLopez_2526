@@ -43,8 +43,9 @@ class MyAppState extends State<MyApp> {
       darkTheme: AppThemes.darkTheme,
       themeMode: _themeMode,
 
-      initialRoute: HomeScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: {
+        SplashScreen.routeName: (context) => const SplashScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
         InfoScreen.routeName: (context) => const InfoScreen(),
         ProfileScreen.routeName: (context) => const ProfileScreen(),

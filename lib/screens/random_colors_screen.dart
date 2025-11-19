@@ -68,41 +68,48 @@ class _RandomColorsState extends State<RandomColors> {
       appBar: AppBar(
         title: const Text("Colores Aleatorios"),
       ),
-      // 2. Añadimos el Drawer
       drawer: const CustomDrawer(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            'Puntos: $points',
-            // Usa el Theme pero lo hace más grande
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: 30
-            ),
-          ),
-          Center(
-            child: GestureDetector(
-              onTap: onGiftTap,
-              child: Column(
-                children: [
-                  Container(
-                    width: 120,
-                    height: 120,
-                    color: randomColor,
-                  ),
-                  Text(
-                    randomName,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            
+            mainAxisAlignment: MainAxisAlignment.center, 
+            children: [
+              Text(
+                'Puntos: $points',
+                // Usa el Theme pero lo hace más grande
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30
+                ),
               ),
-            ),
+              
+              const SizedBox(height: 50),
+
+              GestureDetector(
+                onTap: onGiftTap,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 120,
+                      height: 120,
+                      color: randomColor,
+                    ),
+                    const SizedBox(height: 20), // Espaciado entre cuadro y texto
+                    Text(
+                      randomName,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -115,7 +122,6 @@ class _RandomColorsState extends State<RandomColors> {
       } else {
         points--;
       }
-      
       
       // Genera un nuevo reto después de pulsar
       getRandomIndexes();

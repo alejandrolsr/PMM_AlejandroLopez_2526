@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../drawer/custom_drawer.dart';
 
 class GalleryScreen extends StatelessWidget {
-  // <-- 2. AÑADIR RUTA
   static const String routeName = '/gallery';
 
   const GalleryScreen({super.key});
@@ -14,6 +13,7 @@ class GalleryScreen extends StatelessWidget {
       drawer: const CustomDrawer(),
       body: GridView.count(
         crossAxisCount: 3,
+        padding: const EdgeInsets.all(8.0),
         children: const [
           Image(image: AssetImage("assets/images/pic1.png")),
           Image(image: AssetImage("assets/images/pic2.png")),
