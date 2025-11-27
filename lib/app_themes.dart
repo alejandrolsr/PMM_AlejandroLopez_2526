@@ -32,7 +32,7 @@ class AppThemes {
     ),
     
     appBarTheme: AppBarTheme(
-      color: myGreenColor, 
+      backgroundColor: myGreenColor, 
       elevation: 4,
       titleTextStyle: const TextStyle( 
         color: Colors.white,
@@ -74,7 +74,7 @@ class AppThemes {
     ),
     
     appBarTheme: AppBarTheme(
-      color: Colors.grey[850],
+      backgroundColor: Colors.grey[850],
       elevation: 4,
       titleTextStyle: const TextStyle( 
         color: Colors.white,

@@ -88,8 +88,16 @@ class CustomDrawer extends StatelessWidget {
             title: const Text("Tap Game"),
             onTap: () => Navigator.pushReplacementNamed(context, TapGameScreen.routeName),
           ),
-
-
+          ListTile(
+            leading: const Icon(Icons.casino),
+            title: const Text("Adivinar Número"),
+            onTap: () => Navigator.pushReplacementNamed(context, GuessNumberScreen.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.list_alt),
+            title: const Text("Formulario"), // Nombre simplificado
+            onTap: () => Navigator.pushReplacementNamed(context, FormScreen.routeName),
+          ),
           Divider(),
           SwitchListTile(
             title: Text('Modo Oscuro'),

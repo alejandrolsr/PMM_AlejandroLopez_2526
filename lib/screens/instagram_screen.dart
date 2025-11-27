@@ -8,6 +8,8 @@ import '../drawer/custom_drawer.dart';
 class InstagramScreen extends StatelessWidget {
   static const String routeName = '/instagram';
 
+  const InstagramScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

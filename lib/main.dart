@@ -59,6 +59,8 @@ class MyAppState extends State<MyApp> {
         InstagramScreen.routeName: (context) => InstagramScreen(),
         RandomColors.routeName: (context) => const RandomColors(),
         TapGameScreen.routeName: (context) => const TapGameScreen(),
+        GuessNumberScreen.routeName: (context) => const GuessNumberScreen(),
+        FormScreen.routeName: (context) => const FormScreen(),
       },
     );
   }
