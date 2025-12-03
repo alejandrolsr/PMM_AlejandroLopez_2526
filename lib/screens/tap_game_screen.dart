@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../drawer/custom_drawer.dart';
 
 class TapGameScreen extends StatefulWidget {
-  
   static const String routeName = '/tapgame';
 
   const TapGameScreen({super.key});
@@ -27,12 +27,29 @@ class _TapGameScreenState extends State<TapGameScreen> {
   void initState() {
     super.initState();
     
+    
+    _loadPoints();
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
-         _isLayoutBuilt = true;
+        _isLayoutBuilt = true;
       });
       _timer = Timer(Duration.zero, _moveTarget);
     });
+  }
+
+  // --- MÉTODOS DE PERSISTENCIA ---
+
+  Future<void> _loadPoints() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _points = prefs.getInt('tap_game_points') ?? 0;
+    });
+  }
+
+  Future<void> _savePoints() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('tap_game_points', _points);
   }
 
   @override
@@ -67,6 +84,7 @@ class _TapGameScreenState extends State<TapGameScreen> {
     setState(() {
       _points++;
     });
+    _savePoints();
     _moveTarget();
   }
 
@@ -75,6 +93,7 @@ class _TapGameScreenState extends State<TapGameScreen> {
       setState(() {
         _points -= 2;
       });
+      _savePoints(); 
       _moveTarget();
     }
   }
@@ -84,7 +103,8 @@ class _TapGameScreenState extends State<TapGameScreen> {
     setState(() {
       _points = 0;
     });
-    _moveTarget(); //Objetivo se mueve al reiniciar
+    _savePoints(); 
+    _moveTarget(); 
   }
 
   @override
@@ -92,7 +112,6 @@ class _TapGameScreenState extends State<TapGameScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Puntos: $_points'),
-        //Botón de reinicio en la barra ---
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
